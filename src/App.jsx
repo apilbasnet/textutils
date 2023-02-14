@@ -1,6 +1,6 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
-import TextForm from "./components/textForm";
+import TextForm from "./components/TextForm";
 
 function App() {
   return (
@@ -8,7 +8,11 @@ function App() {
       <div>
         <Navbar title="Text Utility" about="About Us " homePage="Home" />
 
-        <TextForm heading="Enter your text " />
+
+        <div className="my-box">
+          <TextForm heading="Enter your text " />
+
+        </div>
 
 
       </div>

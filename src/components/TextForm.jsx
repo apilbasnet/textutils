@@ -1,18 +1,25 @@
 import { useState } from "react";
 import React from "react";
 
+
 export default function TextForm(props) {
-  const [text, setText] = useState("Enter your text.");
+  const [text, setText] = useState("");
 
   const UpClick = () => {
-    console.log("UPClick was pressed.");
+    // console.log("UPClick was pressed.");
     let newText = text.toUpperCase();
     setText(newText);
   }
 
   const lowClick = () => {
-    console.log("LowClick was pressed.");
+    // console.log("LowClick was pressed.");
     let newText = text.toLowerCase();
+    setText(newText);
+  }
+
+  const clearClick = () => {
+
+    let newText = ("");
     setText(newText);
   }
 
@@ -22,11 +29,21 @@ export default function TextForm(props) {
     console.log("onchange");
     setText(event.target.value)
   }
+  // const copyToClipboard = () => {
+
+  //   await.navigator.clipboard.writetext();
+
+  // }
+  let sentence = () => {
+
+  }
+
+
 
   return (
     <>
-      <h1>{props.heading}</h1>
       <div className="myBox">
+        <h1>{props.heading}</h1>
         <textarea
           className="form-control"
           value={text}
@@ -35,16 +52,44 @@ export default function TextForm(props) {
           onChange={handleOnChange}
         ></textarea>
 
-
-        <button className="button" onClick={UpClick} >
+        <button className="button mx-2" onClick={UpClick} >
           Change to UpperCase
         </button>
 
-        <button className="button" onClick={lowClick} >
+        <button className="button mx-2" onClick={lowClick} >
           Change to LowerCase
         </button>
 
+        <button className="button mx-2" onClick={clearClick} >
+          Clear
+        </button>
+
+        {/* <button className="button mx-2" onClick={copyToClipboard} >
+          Copy to Clipboard
+        </button> */}
+
       </div>
+
+
+
+      <div className="preview my-3">
+        <h1>Your Text Summary</h1>
+
+        <p> <li>{text.split(" ").length} : words length and {text.length} : characters length </li></p>
+        <p> <li>{0.008 * text.split(" ").length} : minutes read </li></p>
+
+        {sentence = text.split(/[.?!]/).length - 1}
+        <p> <li> {sentence} : Number of sentences </li></p>
+
+        <h2>Your text preview</h2>
+        <p>{text}</p>
+
+
+
+
+      </div>
+
+
     </>
   );
 }
