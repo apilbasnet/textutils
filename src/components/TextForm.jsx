@@ -26,9 +26,10 @@ export default function TextForm(props) {
 
 
   const handleOnChange = (event) => {
-    console.log("onchange");
+    // console.log("onchange");
     setText(event.target.value)
   }
+
   // const copyToClipboard = () => {
 
   //   await.navigator.clipboard.writetext();
@@ -64,9 +65,9 @@ export default function TextForm(props) {
           Clear
         </button>
 
-        {/* <button className="button mx-2" onClick={copyToClipboard} >
+        <button className="button mx-2"  >
           Copy to Clipboard
-        </button> */}
+        </button>
 
       </div>
 
@@ -78,8 +79,8 @@ export default function TextForm(props) {
         <p> <li>{text.split(" ").length} : words length and {text.length} : characters length </li></p>
         <p> <li>{0.008 * text.split(" ").length} : minutes read </li></p>
 
-        {sentence = text.split(/[.?!]/).length - 1}
-        <p> <li> {sentence} : Number of sentences </li></p>
+
+        <p> <li> {sentence = text.split(/[.?!]/).length - 1} : Number of sentences </li></p>
 
         <h2>Your text preview</h2>
         <p>{text}</p>
