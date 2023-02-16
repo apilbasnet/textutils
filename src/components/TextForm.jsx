@@ -30,11 +30,11 @@ export default function TextForm(props) {
     setText(event.target.value)
   }
 
-  // const copyToClipboard = () => {
+  const copyToClipboard = async () => {
 
-  //   await.navigator.clipboard.writetext();
+    await navigator.clipboard.writeText(text);
 
-  // }
+  }
   let sentence = () => {
 
   }
@@ -65,7 +65,7 @@ export default function TextForm(props) {
           Clear
         </button>
 
-        <button className="button mx-2"  >
+        <button className="button mx-2" onClick={copyToClipboard} >
           Copy to Clipboard
         </button>
 
@@ -89,6 +89,7 @@ export default function TextForm(props) {
 
 
       </div>
+
 
 
     </>

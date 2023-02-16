@@ -1,9 +1,10 @@
 import React from "react";
 
+
 export default function Navbar(props) {
   return (
 
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
           {props.title}
@@ -45,6 +46,12 @@ export default function Navbar(props) {
           {/* </form> */}
         </div>
       </div>
+
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" />
+        <label class="form-check-label" for="flexSwitchCheckDefault"> <img src="https://static.thenounproject.com/png/3861733-200.png" style={{ width: "30px", height: "auto" }}></img> </label>
+      </div>
+
     </nav>
 
   );
