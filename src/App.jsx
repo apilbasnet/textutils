@@ -2,29 +2,39 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 import About from "./components/about"
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 
 function App() {
-  const [darkMode, setdarkMode] = useState({
-
-    color: "black",
-    backgroundColor: "white"
-  })
-
+  const [theme, setTheme] = useState()
 
   const toggleDarkMode = () => {
-    setdarkMode(!darkMode)
+    const oldTheme = window.localStorage.getItem("theme");
+    const newTheme = oldTheme === "light" ? "dark" : "light";
+    setTheme(newTheme)
   }
+  
+  useEffect(() => {
+    const theme = window.localStorage.getItem('theme');
 
- 
-
+    if (theme) {
+      setTheme(theme);
+    } else {
+      setTheme('light');
+    }
+  }, []);
+  
+  useEffect(() => {
+    if (theme === 'light' || theme === 'dark') {
+      window.localStorage.setItem("theme", theme);
+    }
+  }, [theme]);
 
   return (
     <>
-      <div className={"dasd"} style={darkMode}>
+      <div className={theme}>
 
-        <Navbar title="Text Utility" about="About Us " homePage="Home" toggleDarkMode={toggleDarkMode} />
+        <Navbar title="Text Utility" about="About Us " homePage="Home" darkMode={theme === "dark"} toggleDarkMode={toggleDarkMode} />
 
 
         <div className="my-box">

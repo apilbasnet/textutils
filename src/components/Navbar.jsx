@@ -1,7 +1,7 @@
 import React from "react";
 
 
-export default function Navbar(props, { toggleDarkMode }) {
+export default function Navbar(props) {
   return (
 
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -48,8 +48,8 @@ export default function Navbar(props, { toggleDarkMode }) {
       </div>
 
       <div className="form-check form-switch">
-        <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault" />
-        <label onClick={toggleDarkMode} className="form-check-label" htmlFor="flexSwitchCheckDefault"> <img src="https://static.thenounproject.com/png/3861733-200.png" style={{ width: "30px", height: "auto" }}></img> </label>
+        <input onChange={props.toggleDarkMode} className="form-check-input" type="checkbox" id="flexSwitchCheckDefault" checked={props.darkMode} defaultChecked={props.darkMode} />
+        <label  className="form-check-label" htmlFor="flexSwitchCheckDefault"> <img src="https://static.thenounproject.com/png/3861733-200.png" style={{ width: "30px", height: "auto" }}></img> </label>
       </div>
 
     </nav>
