@@ -58,7 +58,7 @@ export default function TextForm(props) {
           {/* style={{backgroundColor : props.mode === "dark" ? "black" : "white"}} */}
 
         <div className="buttons"  >
-          <button className="button mx-2 "   onClick={UpClick} >
+          <button className="button mx-2 " onClick={UpClick} >
           Change to UpperCase
         </button>
 
