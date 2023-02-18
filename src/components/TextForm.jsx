@@ -35,7 +35,7 @@ export default function TextForm(props) {
     await navigator.clipboard.writeText(text);
 
   }
-  
+
   let sentence = () => {
 
   }
@@ -54,25 +54,22 @@ export default function TextForm(props) {
           onChange={handleOnChange}
         ></textarea>
 
-          
-          {/* style={{backgroundColor : props.mode === "dark" ? "black" : "white"}} */}
-
         <div className="buttons"  >
           <button className="button mx-2 " onClick={UpClick} >
-          Change to UpperCase
-        </button>
+            Change to UpperCase
+          </button>
 
-        <button className="button mx-2" onClick={lowClick} >
-          Change to LowerCase
-        </button>
+          <button className="button mx-2" onClick={lowClick} >
+            Change to LowerCase
+          </button>
 
-        <button className="button mx-2" onClick={clearClick} >
-          Clear
-        </button>
+          <button className="button mx-2" onClick={clearClick} >
+            Clear
+          </button>
 
-        <button className="button mx-2" onClick={copyToClipboard} >
-          Copy to Clipboard
-        </button>
+          <button className="button mx-2" onClick={copyToClipboard} >
+            Copy to Clipboard
+          </button>
 
         </div>
 
