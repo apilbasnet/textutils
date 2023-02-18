@@ -1,10 +1,12 @@
 import React from "react";
-
+import { useState } from "react";
+import about from "./about";
 
 export default function Navbar(props) {
   return (
-
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav
+      className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
+    >
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
           {props.title}
@@ -28,7 +30,7 @@ export default function Navbar(props) {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/">
+              <a className="nav-link" href="/" onClick={about}>
                 {props.about}
               </a>
             </li>
@@ -47,12 +49,25 @@ export default function Navbar(props) {
         </div>
       </div>
 
-      <div className="form-check form-switch">
-        <input onChange={props.toggleDarkMode} className="form-check-input" type="checkbox" id="flexSwitchCheckDefault" checked={props.darkMode} defaultChecked={props.darkMode} />
-        <label  className="form-check-label" htmlFor="flexSwitchCheckDefault"> <img src="https://static.thenounproject.com/png/3861733-200.png" style={{ width: "30px", height: "auto" }}></img> </label>
+      <div className= "form-check form-switch" >
+        <input
+          onChange={props.toggleDarkMode}
+          className="form-check-input"
+          type="checkbox"
+          id="flexSwitchCheckDefault"
+          checked={props.darkMode}
+          defaultChecked={props.darkMode}
+          height = "center"
+          />
+        <label className="form-check-label" htmlFor="flexSwitchCheckDefault" height = "center">
+          
+          
+          <img
+            src="https://static.thenounproject.com/png/3861733-200.png"
+            style={{ width: "30px", height: "center" }}
+          ></img>
+        </label>
       </div>
-
     </nav>
-
   );
 }
