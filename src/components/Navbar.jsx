@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import about from "./about";
+import about from "./About";
 
 export default function Navbar(props) {
   return (
@@ -49,7 +49,7 @@ export default function Navbar(props) {
         </div>
       </div>
 
-      <div className= "form-check form-switch" >
+      <div className="form-check form-switch" >
         <input
           onChange={props.toggleDarkMode}
           className="form-check-input"
@@ -57,11 +57,11 @@ export default function Navbar(props) {
           id="flexSwitchCheckDefault"
           checked={props.darkMode}
           defaultChecked={props.darkMode}
-          height = "center"
-          />
-        <label className="form-check-label" htmlFor="flexSwitchCheckDefault" height = "center">
-          
-          
+          height="center"
+        />
+        <label className="form-check-label" htmlFor="flexSwitchCheckDefault" height="center">
+
+
           <img
             src="https://static.thenounproject.com/png/3861733-200.png"
             style={{ width: "30px", height: "center" }}

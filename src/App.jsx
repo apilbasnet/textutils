@@ -2,7 +2,9 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 import About from "./components/about";
+
 import React, { useEffect, useState } from "react";
+import Alert from "./components/Alert";
 
 function App() {
   const [theme, setTheme] = useState();
@@ -40,14 +42,19 @@ function App() {
   return (
     <>
       <div className={theme}>
-        <Navbar
-          title="Text Utility"
-          about ="About Us "
-          homePage="Home"
-          darkMode={theme === "dark"}
-          toggleDarkMode={toggleDarkMode}
-          mode={mode}
-        />
+        
+          <Navbar
+            title="Text Utility"
+            about="About Us "
+            homePage="Home"
+            darkMode={theme === "dark"}
+            toggleDarkMode={toggleDarkMode}
+            mode={mode}
+          />
+        <div><Alert /></div>
+        
+
+
 
         <div className="my-box">
           <TextForm heading="Enter your text " />

@@ -1,6 +1,6 @@
+import "../App.css";
 import { useState } from "react";
 import React from "react";
-
 
 export default function TextForm(props) {
   const [text, setText] = useState("");
@@ -40,6 +40,14 @@ export default function TextForm(props) {
 
   }
 
+  const removeExtraSpaces = () => {
+    let newText = text.split(/[ ]+/)
+    setText(newText.join(" "))
+
+  }
+
+
+
 
 
   return (
@@ -52,6 +60,7 @@ export default function TextForm(props) {
           id="myBox"
           rows="8"
           onChange={handleOnChange}
+          style={{ backgroundColor: props.theme === "dark" ? "#25292d" : "whitesmoke" }}
         ></textarea>
 
         <div className="buttons"  >
@@ -71,6 +80,10 @@ export default function TextForm(props) {
             Copy to Clipboard
           </button>
 
+          <button className="button mx-2" onClick={removeExtraSpaces} >
+            Remove extra spaces
+          </button>
+
         </div>
 
       </div>
@@ -87,7 +100,7 @@ export default function TextForm(props) {
         <p> <li> {sentence = text.split(/[.?!]/).length - 1} : Number of sentences </li></p>
 
         <h2>Your text preview</h2>
-        <p>{text}</p>
+        <p>{text.length > 0 ? text : "Enter your text"}</p>
 
 
 
