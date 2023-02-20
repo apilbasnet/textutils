@@ -9,18 +9,21 @@ export default function TextForm(props) {
     // console.log("UPClick was pressed.");
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert("Converted to Uppercase!", "success ")
   }
 
   const lowClick = () => {
     // console.log("LowClick was pressed.");
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert("Converted to Lowercase!", "success ")
   }
 
   const clearClick = () => {
 
     let newText = ("");
     setText(newText);
+    props.showAlert("Cleared all the text!", "success ")
   }
 
 
@@ -33,6 +36,7 @@ export default function TextForm(props) {
   const copyToClipboard = async () => {
 
     await navigator.clipboard.writeText(text);
+    props.showAlert("Copied to Clipboard!", "success ")
 
   }
 
@@ -43,6 +47,7 @@ export default function TextForm(props) {
   const removeExtraSpaces = () => {
     let newText = text.split(/[ ]+/)
     setText(newText.join(" "))
+    props.showAlert("Removed extra spaces!", "success ")
 
   }
 
@@ -66,6 +71,7 @@ export default function TextForm(props) {
         <div className="buttons"  >
           <button className="button mx-2 " onClick={UpClick} >
             Change to UpperCase
+
           </button>
 
           <button className="button mx-2" onClick={lowClick} >

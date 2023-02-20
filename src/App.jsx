@@ -6,7 +6,9 @@ import About from "./components/about";
 import React, { useEffect, useState } from "react";
 import Alert from "./components/Alert";
 
-function App() {
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+
+function App(props) {
   const [theme, setTheme] = useState();
 
   const [mode, setmode] = useState(setTheme);
@@ -18,8 +20,11 @@ function App() {
 
     if (mode === "dark") {
       setmode("light");
+      showAlert("Light mode has been enabled", "success ")
     } else {
       setmode("dark");
+      showAlert("Dark mode has been enabled", "success ")
+
     }
   };
 
@@ -39,10 +44,30 @@ function App() {
     }
   }, [theme]);
 
+  const [alert, setAlert] = useState(null)
+
+  const showAlert = (message, type) => {
+    setAlert({
+      msg: message,
+      type: type
+
+    })
+    setTimeout(() => {
+      setAlert(null)
+
+    },
+      1500);
+
+  }
+
+
+
   return (
     <>
       <div className={theme}>
-        
+
+        <Router>
+
           <Navbar
             title="Text Utility"
             about="About Us "
@@ -51,15 +76,30 @@ function App() {
             toggleDarkMode={toggleDarkMode}
             mode={mode}
           />
-        <div><Alert /></div>
-        
+
+          <div><Alert alert={alert} /></div>
+
+          <div className="container mt-3">
+            <Routes>
+              <Route exact path="/about" element={<div className="about">
+            <About > </About>
+          </div>}> </Route>
+              <Route exact path="/" element={<div className="my-box">
+                <TextForm showAlert={showAlert} heading="Enter your text " />
+              </div>}></Route>
+            </Routes>
+          </div>
 
 
 
-        <div className="my-box">
-          <TextForm heading="Enter your text " />
-        </div>
-        <div className="about">{/* <About > </About> */}</div>
+
+          {/* <div className="my-box">
+            <TextForm showAlert={showAlert} heading="Enter your text " />
+          </div>
+          <div className="about">
+            <About > </About>
+          </div> */}
+        </Router>
       </div>
     </>
   );
