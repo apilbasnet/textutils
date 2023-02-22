@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import about from "./About";
+
 
 export default function Navbar(props) {
   return (
@@ -31,7 +31,7 @@ export default function Navbar(props) {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/about" onClick={about}>
+              <Link className="nav-link" to="/About" >
                 {props.about}
               </Link>
             </li>
@@ -69,7 +69,7 @@ export default function Navbar(props) {
           ></img>
         </label>
       </div>
-      
+
     </nav>
   );
 }
