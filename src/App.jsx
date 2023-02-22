@@ -82,23 +82,14 @@ function App(props) {
           <div className="container mt-3">
             <Routes>
               <Route exact path="/about" element={<div className="about">
-            <About > </About>
-          </div>}> </Route>
+                <About mode={mode} > </About>
+              </div>}> </Route>
               <Route exact path="/" element={<div className="my-box">
-                <TextForm showAlert={showAlert} heading="Enter your text " />
+                <TextForm showAlert={showAlert} heading="Enter your text "  mode={mode} />
               </div>}></Route>
             </Routes>
           </div>
 
-
-
-
-          {/* <div className="my-box">
-            <TextForm showAlert={showAlert} heading="Enter your text " />
-          </div>
-          <div className="about">
-            <About > </About>
-          </div> */}
         </Router>
       </div>
     </>

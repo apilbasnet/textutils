@@ -69,7 +69,7 @@ export default function Navbar(props) {
           ></img>
         </label>
       </div>
-      <div></div>
+      
     </nav>
   );
 }

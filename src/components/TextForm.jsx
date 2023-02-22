@@ -1,6 +1,7 @@
 import "../App.css";
 import { useState } from "react";
 import React from "react";
+import { element } from "prop-types";
 
 export default function TextForm(props) {
   const [text, setText] = useState("");
@@ -65,7 +66,10 @@ export default function TextForm(props) {
           id="myBox"
           rows="8"
           onChange={handleOnChange}
-          style={{ backgroundColor: props.theme === "dark" ? "#25292d" : "whitesmoke" }}
+          style={{
+            backgroundColor: props.mode === "dark" ? "#33383d" : "whitesmoke"
+            , color: props.mode === "dark" ? "white" : "black"
+          }}
         ></textarea>
 
         <div className="buttons"  >
@@ -99,7 +103,7 @@ export default function TextForm(props) {
       <div className="preview my-3">
         <h1>Your Text Summary</h1>
 
-        <p> <li>{text.split(" ").length} : words length and {text.length} : characters length </li></p>
+        <p> <li>{text.split(" ").filter((element) => { return element.length !== 0 }).length} : words length and {text.length} : characters length </li></p>
         <p> <li>{0.008 * text.split(" ").length} : minutes read </li></p>
 
 
