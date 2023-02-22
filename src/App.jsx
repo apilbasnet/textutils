@@ -85,13 +85,14 @@ function App(props) {
                 <About mode={mode} > </About>
               </div>}> </Route>
               <Route exact path="/" element={<div className="my-box">
-                <TextForm showAlert={showAlert} heading="Enter your text "  mode={mode} />
+                <TextForm showAlert={showAlert} heading="Enter your text " mode={mode} />
               </div>}></Route>
             </Routes>
           </div>
 
         </Router>
       </div>
+      <div></div>
     </>
   );
 }
