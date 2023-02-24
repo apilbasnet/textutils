@@ -7,14 +7,14 @@ export default function TextForm(props) {
   const [text, setText] = useState("");
 
   const UpClick = () => {
-    // console.log("UPClick was pressed.");
+
     let newText = text.toUpperCase();
     setText(newText);
     props.showAlert("Converted to Uppercase!", "success ")
   }
 
   const lowClick = () => {
-    // console.log("LowClick was pressed.");
+
     let newText = text.toLowerCase();
     setText(newText);
     props.showAlert("Converted to Lowercase!", "success ")
@@ -30,7 +30,7 @@ export default function TextForm(props) {
 
 
   const handleOnChange = (event) => {
-    // console.log("onchange");
+
     setText(event.target.value)
   }
 
@@ -42,6 +42,7 @@ export default function TextForm(props) {
   }
 
   let sentence = () => {
+
 
   }
 
@@ -73,24 +74,24 @@ export default function TextForm(props) {
         ></textarea>
 
         <div className="buttons"  >
-          <button className="button mx-2 " onClick={UpClick} >
+          <button disabled={text.length === 0} className="button mx-2 " onClick={UpClick} >
             Change to UpperCase
 
           </button>
 
-          <button className="button mx-2" onClick={lowClick} >
+          <button disabled={text.length === 0} className="button mx-2" onClick={lowClick} >
             Change to LowerCase
           </button>
 
-          <button className="button mx-2" onClick={clearClick} >
+          <button disabled={text.length === 0} className="button mx-2" onClick={clearClick} >
             Clear
           </button>
 
-          <button className="button mx-2" onClick={copyToClipboard} >
+          <button disabled={text.length === 0} className="button mx-2" onClick={copyToClipboard} >
             Copy to Clipboard
           </button>
 
-          <button className="button mx-2" onClick={removeExtraSpaces} >
+          <button disabled={text.length === 0} className="button mx-2" onClick={removeExtraSpaces} >
             Remove extra spaces
           </button>
 
@@ -103,14 +104,14 @@ export default function TextForm(props) {
       <div className="preview my-3">
         <h1>Your Text Summary</h1>
 
-        <p> <li>{text.split(" ").filter((element) => { return element.length !== 0 }).length} : words length and {text.length} : characters length </li></p>
+        <p> <li>{text.split(/\s+/).filter((element) => { return element.length !== 0 }).length} : words length and {text.length} : characters length </li></p>
         <p> <li>{0.008 * text.split(" ").length} : minutes read </li></p>
 
 
         <p> <li> {sentence = text.split(/[.?!]/).length - 1} : Number of sentences </li></p>
 
         <h2>Your text preview</h2>
-        <p>{text.length > 0 ? text : "Enter your text"}</p>
+        <p>{text.length > 0 ? text : "Enter something to preview"}</p>
 
 
 
